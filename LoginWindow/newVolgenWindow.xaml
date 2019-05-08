@@ -1,0 +1,133 @@
+﻿<Window x:Class="LoginWindow.newVolgenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginWindow"
+        mc:Ignorable="d"
+        Title="newVolgenWindow" Height="385.2" Width="329.6"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Ajout d'un vol générique"
+               FontSize="27"
+               HorizontalAlignment="Center"
+               Margin="0,6,0,17"
+               Grid.Row="0"/>
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Num vol :" 
+                   Margin="10"
+                   Grid.Column="0"
+                   Grid.Row="0"/>
+
+            <TextBox x:Name="tbNumvol"
+                     Margin="10"
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     Width="100"
+                     HorizontalAlignment="Left"/>
+
+            <Label Content="Aeroport de départ :" 
+                   Margin="10"
+                   Grid.Column="0"
+                   Grid.Row="1"/>
+
+            <ComboBox x:Name="cbAerDep"
+                      Margin="10"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Width="100"
+                      HorizontalAlignment="Left"
+                      SelectedIndex="0"/>
+
+            <Label Content="Aeroport d'arrivée :" 
+                   Margin="10"
+                   Grid.Column="0"
+                   Grid.Row="2"/>
+
+            <ComboBox x:Name="cbAerArr"
+                      Margin="10"
+                      Grid.Column="1"
+                      Grid.Row="2"
+                      Width="100"
+                      HorizontalAlignment="Left"
+                      SelectedIndex="1"/>
+
+            <Label Content="Heure de départ :" 
+                   Margin="10"
+                   Grid.Column="0"
+                   Grid.Row="3"/>
+
+            <StackPanel Grid.Column="1"
+                        Grid.Row="3"
+                        Orientation="Horizontal">
+                <ComboBox x:Name="cbHeureDep"
+                      Margin="10"
+                      Width="50"
+                      HorizontalAlignment="Left"
+                      SelectedIndex="0"/>
+
+                <Label Content=":" 
+                       VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="cbMinDep"
+                      Margin="10"
+                      Width="50"
+                      HorizontalAlignment="Left"
+                      SelectedIndex="0"/>
+
+            </StackPanel>
+            
+            
+
+
+            <Label Content="Durée du vol :" 
+                   Margin="10"
+                   Grid.Column="0"
+                   Grid.Row="4"/>
+
+            <TextBox x:Name="tbDuree"
+                      Margin="10"
+                      Grid.Column="1"
+                      Grid.Row="4"
+                      Width="100"
+                      HorizontalAlignment="Left"/>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Center">
+            
+            <Button x:Name="Annuler"
+                    Content="Annuler"
+                    HorizontalAlignment="Center"
+                    Height="20"
+                    Width="65"
+                    Margin="10"
+                    Click="ButtonAnnuler_Click"/>
+            
+            <Button x:Name="Ajouter"
+                    Content="Ajouter"
+                    HorizontalAlignment="Center"
+                    Height="20"
+                    Width="65"
+                    Margin="10"
+                    Click="ButtonValider_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

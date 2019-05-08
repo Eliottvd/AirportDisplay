@@ -1,0 +1,70 @@
+﻿<Window x:Class="LoginWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginWindow"
+        mc:Ignorable="d"
+        MaxHeight="225" MaxWidth="400"
+        Title="Login" Height="225" Width="350" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="lblIdentifiant"
+                       Content="Identifiant :"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="20,0,39,0"/>
+
+                <TextBox x:Name="txtLogin"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Mot de passe :"
+                       Margin="20,0,23,0"/>
+
+                <PasswordBox x:Name="txtMdp"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"
+                         PasswordChar="$"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Code :"
+                       Margin="20,0,70,0"/>
+
+                <TextBox x:Name="txtCode"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <Button x:Name="buttonConnexion"
+                    Content="Connexion"
+                    Width="75"
+                    Height="20"
+                    Grid.Row="4" Click="ButtonConnexion_Click"/>
+            
+            <Button x:Name="buttonCreation"
+                    Content="Creation"
+                    Width="75"
+                    Height="20"
+                    Grid.Row="5" Click="ButtonCreation_Click"/>
+        </Grid>
+    </Grid>
+</Window>

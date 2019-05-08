@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{C6CA0421-0A79-46ED-8A2A-28FB4B5D3DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWindow", "LoginWindow\LoginWindow.csproj", "{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6CA0421-0A79-46ED-8A2A-28FB4B5D3DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CA0421-0A79-46ED-8A2A-28FB4B5D3DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CA0421-0A79-46ED-8A2A-28FB4B5D3DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CA0421-0A79-46ED-8A2A-28FB4B5D3DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E93C63E-A2A6-4192-9383-6ECBA5625D30}
+	EndGlobalSection
+EndGlobal
