@@ -23,8 +23,10 @@ namespace ClassLibrary
             _pass = null;
             _code = null;
             _nomcomplet = null;
-            _dosimg = null;
-            _dosfiles = null;
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
+            rk = rk.CreateSubKey("HEPL");
+            _dosimg = rk.GetValue("imgpath").ToString();
+            _dosfiles = rk.GetValue("datapath").ToString();
         }
 
         #endregion
@@ -139,7 +141,6 @@ namespace ClassLibrary
             else
             {
                 rk.SetValue(Login, Pass);
-                //ici est le changemetn 
                 return true;
             }
         }

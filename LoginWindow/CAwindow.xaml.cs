@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media.Effects;
+using System.Drawing;
 
 using ClassLibrary;
 namespace LoginWindow
@@ -32,10 +33,14 @@ namespace LoginWindow
         public CAwindow(FlightAndAirportManager f)
         {
             InitializeComponent();
-            
             fnaManager = f;
             //WorkSpace = fnaManager.Workspace;
-            CA = new CompagnieAerienne();
+            CA = new CompagnieAerienne("SN", "Brussels Airlines", "Belgique" ,"SN.png");
+            CA.Load(fnaManager.DosFiles+"\\"+fnaManager.Code+".xml");
+            lblNomCompagnie.Content = CA.FullName;
+            lblLocalisationC.Content = CA.Localisation;
+            //imgCA.Source = CA.LogoPath + "\\" + CA.Code + ".png"; 
+
             listVolsGeneriques = new OCvol<VolGenerique>();
 
             listVolsGeneriques.Add(new VolGenerique("1", "OLE Oleye", "DBI Dubai", new TimeSpan(), new TimeSpan()));

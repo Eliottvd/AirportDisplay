@@ -8,8 +8,7 @@ namespace ClassLibrary
     public class CompagnieAerienne
     {
         #region variables
-        int _id;
-        string _password;
+        string _code;
         string _fullname;
         string _localisation;
         string _logopath;
@@ -21,10 +20,9 @@ namespace ClassLibrary
 
         }
 
-        public CompagnieAerienne(int i, string p, string f, string loc, string log)
+        public CompagnieAerienne(string c, string f, string loc, string log)
         {
-            _id = i;
-            _password = p;
+            _code = c;
             _fullname = f;
             _localisation = loc;
             _logopath = log;
@@ -32,10 +30,10 @@ namespace ClassLibrary
         #endregion
 
         #region propriétés
-        public int Id
+        public string Code
         {
-            set { _id = value; }
-            get { return _id; }
+            set { _code = value; }
+            get { return _code; }
         }
         
         public string FullName
@@ -65,7 +63,7 @@ namespace ClassLibrary
                 FullName = tmp.FullName;
                 Localisation = tmp.Localisation;
                 LogoPath = tmp.LogoPath;
-                Id = tmp.Id;
+                Code = tmp.Code;
             }
         }
 

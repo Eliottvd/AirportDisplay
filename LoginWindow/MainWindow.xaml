@@ -5,18 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginWindow"
         mc:Ignorable="d"
-        MaxHeight="225" MaxWidth="400"
+        MaxHeight="325" MaxWidth="400"
         Title="Login" Height="225" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem x:Name="MenuOption" Header="Option" Click="MenuOption_Click"/>
+        </Menu>
+        
+        <Grid x:Name="gridConnexion" Visibility="Visible" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <Label HorizontalAlignment="Center"
+                   Content="Connexion"
+                   FontSize="20"
+                   />
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="lblIdentifiant"
@@ -30,7 +42,7 @@
                          Height="20"
                          HorizontalAlignment="Left"/>
             </StackPanel>
-            
+
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label VerticalAlignment="Center"
                        Content="Mot de passe :"
@@ -54,17 +66,131 @@
                          HorizontalAlignment="Left"/>
             </StackPanel>
 
-            <Button x:Name="buttonConnexion"
+            <StackPanel Grid.Row="4" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Center" >
+
+                <Button x:Name="buttonNouveauUser"
+                        Content="Nouvel utilisateur"
+                        Width="105"
+                        Height="20"
+                        Click="ButtonNouveauUser_Click"/>
+
+                <Button x:Name="buttonConnexion"
                     Content="Connexion"
                     Width="75"
                     Height="20"
-                    Grid.Row="4" Click="ButtonConnexion_Click"/>
-            
-            <Button x:Name="buttonCreation"
+                    Margin="30,0,0,0"/>
+
+            </StackPanel>
+
+        </Grid>
+
+
+        <Grid x:Name="gridCreation" Visibility="Hidden" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label HorizontalAlignment="Center"
+                   Content="Creation d'un nouvel utilisateur"
+                   FontSize="20"
+                   />
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="lblIdentifiantCreation"
+                       Content="Identifiant :"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="20,0,39,0"/>
+
+                <TextBox x:Name="txtLoginCreation"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Mot de passe :"
+                       Margin="20,0,23,0"/>
+
+                <PasswordBox x:Name="txtMdpCreation"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"
+                         PasswordChar="$"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Nom complet :"
+                       Margin="20,0,24,0"/>
+
+                <TextBox x:Name="txtNomComplet"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Code :"
+                       Margin="20,0,70,0"/>
+
+                <TextBox x:Name="txtCodeCreation"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Localisation :"
+                       Margin="20,0,35,0"/>
+
+                <TextBox x:Name="txtLocalisation"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Path :"
+                       Margin="20,0,35,0"/>
+
+                <TextBox x:Name="txtPath"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="7" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Center" >
+
+                <Button x:Name="buttonRetourLogin"
+                        Content="Retours au login"
+                        Width="115"
+                        Height="20"
+                        Click="ButtonRetourLogin_Click"/>
+
+                <Button x:Name="buttonCreation"
                     Content="Creation"
                     Width="75"
                     Height="20"
-                    Grid.Row="5" Click="ButtonCreation_Click"/>
+                    Margin="30,0,0,0"/>
+
+            </StackPanel>
         </Grid>
+
     </Grid>
 </Window>

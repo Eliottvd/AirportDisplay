@@ -15,21 +15,24 @@
                 <MenuItem Header="MenuItem2"> </MenuItem>
             </Menu>
 
-            <StackPanel DockPanel.Dock="top"
+                <StackPanel DockPanel.Dock="top"
                         Orientation="Horizontal">
-                <Label Content="Nom compagnie : "
-                       FontWeight="Bold"/>
-                <Label x:Name="lblNomCompagnie"
-                       Content="ACOMPLETER"  
-                       Margin="0,0,20,0"/>
-                <Label Content="Localisation : "
-                       FontWeight="Bold"/>
-                <Label x:Name="lblLocalisationC"
-                       Content="ACOMPLETER"
-                       Margin="0,0,20,0"/>
-                
-
+                    <Label Content="Nom compagnie : "
+                           FontWeight="Bold"/>
+                    <Label x:Name="lblNomCompagnie"
+                           Content="ACOMPLETER"  
+                           Margin="0,0,20,0"/>
+                    <Label Content="Localisation : "
+                           FontWeight="Bold"/>
+                    <Label x:Name="lblLocalisationC"
+                           Content="ACOMPLETER"
+                           Margin="0,0,20,0"/>
+                <Image x:Name="imgCA" Height="60" Width="60"
+                       HorizontalAlignment="Right" 
+                       Source="D:\OneDrive - Enseignement de la Province de Liège\Ecole\BLOC2\Q2\C#\Labo\Phase3\Phase3\LoginWindow\data\\SN.png"/>
             </StackPanel>
+            
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />

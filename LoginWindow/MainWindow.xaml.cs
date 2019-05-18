@@ -47,6 +47,20 @@ namespace LoginWindow
 
         }
 
+        private void ButtonNouveauUser_Click(object sender, RoutedEventArgs e)
+        {
+            gridConnexion.Visibility = Visibility.Hidden;
+            gridCreation.Visibility = Visibility.Visible;
+            this.Height = 275;
+        }
+
+        private void ButtonRetourLogin_Click(object sender, RoutedEventArgs e)
+        {
+            gridCreation.Visibility = Visibility.Hidden;
+            gridConnexion.Visibility = Visibility.Visible;
+            this.Height = 225;
+        }
+
         private void ButtonCreation_Click(object sender, RoutedEventArgs e)
         {
             fnaManager.Login = txtLogin.Text;
@@ -62,8 +76,14 @@ namespace LoginWindow
             }
             else
             {
-                MessageBox.Show("Correct");
+                CompagnieAerienne ca = new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, "d:\\");
+
             }
+        }
+
+        private void MenuOption_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Ceci est la fenêtre option");
         }
 
         public FlightAndAirportManager fnaManager
@@ -76,6 +96,11 @@ namespace LoginWindow
         {
             set { _login = value; }
             get { return _login; }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         public string mdp   
