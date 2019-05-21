@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LoginWindow"
         mc:Ignorable="d"
         MaxHeight="325" MaxWidth="400"
-        Title="Login" Height="275" Width="350" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="245" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -16,7 +16,7 @@
             <MenuItem x:Name="MenuOption" Header="Option" Click="MenuOption_Click"/>
         </Menu>
         
-        <Grid x:Name="gridConnexion" Visibility="Hidden" Grid.Row="1">
+        <Grid x:Name="gridConnexion" Visibility="Visible" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -51,8 +51,7 @@
                 <PasswordBox x:Name="txtMdp"
                          Width="130"
                          Height="20"
-                         HorizontalAlignment="Left"
-                         PasswordChar="$"/>
+                         HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -75,7 +74,7 @@
                         Width="105"
                         Height="20"
                         Click="ButtonNouveauUser_Click"/>
-                            
+
 
                 <Button x:Name="buttonConnexion"
                     Content="Connexion"
@@ -89,11 +88,9 @@
         </Grid>
 
 
-        <Grid x:Name="gridCreation" Visibility="Visible" Grid.Row="1">
+        <Grid x:Name="gridCreation" Visibility="Hidden" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
-                <RowDefinition/>
-                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -110,7 +107,7 @@
                        Content="Identifiant :"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,0,39,0"/>
+                       Margin="20,0,45,0"/>
 
                 <TextBox x:Name="txtLoginCreation"
                          Width="130"
@@ -121,21 +118,21 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label VerticalAlignment="Center"
                        Content="Mot de passe :"
-                       Margin="20,0,23,0"/>
+                       Margin="20,0,28,0"/>
 
                 <PasswordBox x:Name="txtMdpCreation"
                          Width="130"
                          Height="20"
                          HorizontalAlignment="Left"
-                         PasswordChar="$"/>
+                        />
             </StackPanel>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label VerticalAlignment="Center"
-                       Content="Nom complet :"
-                       Margin="20,0,24,0"/>
+                       Content="Confirmation mdp :"
+                       Margin="20,0,1,0"/>
 
-                <TextBox x:Name="txtNomComplet"
+                <PasswordBox x:Name="txtMdpConfirmation"
                          Width="130"
                          Height="20"
                          HorizontalAlignment="Left"/>
@@ -152,30 +149,7 @@
                          HorizontalAlignment="Left"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label VerticalAlignment="Center"
-                       Content="Localisation :"
-                       Margin="20,0,35,0"/>
-
-                <TextBox x:Name="txtLocalisation"
-                         Width="130"
-                         Height="20"
-                         HorizontalAlignment="Left"/>
-            </StackPanel>
-
-            <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label VerticalAlignment="Center"
-                       Content="Path :"
-                       Margin="20,0,35,0"/>
-
-                <TextBox x:Name="txtPath"
-                         Width="130"
-                         Height="20"
-                         HorizontalAlignment="Left"/>
-            </StackPanel>
-
-
-            <StackPanel Grid.Row="7" 
+            <StackPanel Grid.Row="5" 
                         Orientation="Horizontal" 
                         HorizontalAlignment="Center" >
 
@@ -189,10 +163,73 @@
                     Content="Creation"
                     Width="75"
                     Height="20"
-                    Margin="30,0,0,0"/>
+                    Margin="30,0,0,0"
+                    Click="ButtonCreation_Click"/>
 
             </StackPanel>
         </Grid>
+
+        <Grid x:Name="gridCompagnie" Visibility="Hidden" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label HorizontalAlignment="Center"
+                   Content="Connexion"
+                   FontSize="20"
+                   />
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Nom complet :"
+                       Margin="20,0,24,0"/>
+
+                <TextBox x:Name="txtNomComplet"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Localisation :"
+                       Margin="20,0,35,0"/>
+
+                <TextBox x:Name="txtLocalisation"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label VerticalAlignment="Center"
+                       Content="Path :"
+                       Margin="20,0,75,0"/>
+
+                <TextBox x:Name="txtPath"
+                         Width="130"
+                         Height="20"
+                         HorizontalAlignment="Left" GotFocus="TxtPath_GotFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+
+                <Button x:Name="buttonValiderCA"
+                    Content="Valider"
+                    Width="75"
+                    Height="20"
+                    Click="ButtonValiderCA_Click"/>
+
+            </StackPanel>
+
+        </Grid>
+
 
     </Grid>
 </Window>

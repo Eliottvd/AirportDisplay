@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Win32;
+using System.IO;
 
 namespace ClassLibrary
 {
@@ -23,10 +24,7 @@ namespace ClassLibrary
             _pass = null;
             _code = null;
             _nomcomplet = null;
-            RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
-            rk = rk.CreateSubKey("HEPL");
-            _dosimg = rk.GetValue("imgpath").ToString();
-            _dosfiles = rk.GetValue("datapath").ToString();
+            this.LoadregistryParameters();
         }
 
         #endregion
@@ -67,27 +65,20 @@ namespace ClassLibrary
             get { return _dosfiles; }
         }
 
-        void LoadregistryParameters()
+        public void LoadregistryParameters()
         {
-
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
+            rk = rk.CreateSubKey("HEPL");
+            this.DosImg = rk.GetValue("imgpath").ToString();
+            this.DosFiles = rk.GetValue("datapath").ToString();
         }
 
-        void SaveRegistryParameters(string img, string data)
+        public void SaveRegistryParameters()
         {
-            img = "C:\\Users\\Eliott\\Pictures";
             RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
-            RegistryKey HEPL = rk.CreateSubKey("HEPL");
-            RegistryKey image = HEPL;
-            //if(image.GetValue("path")==null)
-            //{
-                image.SetValue("imgpath", img);
-            //}
-            RegistryKey Data = HEPL;
-            Data.SetValue("datapath", Data);
-
-            HEPL.CreateSubKey("CodesCA");
-            HEPL.CreateSubKey("CodesAeroports");
-
+            rk = rk.CreateSubKey("HEPL");
+            rk.SetValue("imgpath", this.DosImg);
+            rk.SetValue("datapath", this.DosFiles);
         }
 
         public bool connexion()
@@ -143,6 +134,20 @@ namespace ClassLibrary
                 rk.SetValue(Login, Pass);
                 return true;
             }
+        }
+
+        public bool isCompanyCreated()
+        {
+            Stream fStream;
+            try
+            {
+                fStream = File.OpenRead(this.DosFiles + "\\" + this.Code + ".xml");
+            }
+            catch (FileNotFoundException)
+            {
+                return false;
+            }
+            return true;
         }
         #endregion
     }

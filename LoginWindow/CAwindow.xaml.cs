@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media.Effects;
 using System.Drawing;
+using System.IO;
+
 
 using ClassLibrary;
 namespace LoginWindow

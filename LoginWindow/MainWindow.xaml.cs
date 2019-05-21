@@ -24,11 +24,12 @@ namespace LoginWindow
     {
         private FlightAndAirportManager _fnaManager;
         private string _login, _mdp, _code;
+        private string _imgpath; 
         public MainWindow()
         {
             InitializeComponent();
             fnaManager = new FlightAndAirportManager();
-
+            _imgpath = null;
         }
 
         private void ButtonConnexion_Click(object sender, RoutedEventArgs e)
@@ -40,9 +41,7 @@ namespace LoginWindow
                 MessageBox.Show("Mauvais identifiants/Mot de passe", "Erreur de login", MessageBoxButton.OK, MessageBoxImage.Hand);
             else
             {
-                CAwindow caWin = new CAwindow(fnaManager);
-                caWin.Show();
-                this.Close();
+                lancerCAWindow();
             }
 
         }
@@ -58,15 +57,19 @@ namespace LoginWindow
         {
             gridCreation.Visibility = Visibility.Hidden;
             gridConnexion.Visibility = Visibility.Visible;
-            this.Height = 225;
+            this.Height = 245;
         }
 
         private void ButtonCreation_Click(object sender, RoutedEventArgs e)
         {
-            fnaManager.Login = txtLogin.Text;
-            fnaManager.Pass = txtMdp.Password;
-            fnaManager.Code = txtCode.Text;
-            if (txtLogin.Text == "" || txtMdp.Password == "" || txtCode.Text == "")
+            fnaManager.Login = txtLoginCreation.Text;
+            fnaManager.Pass = txtMdpCreation.Password;
+            fnaManager.Code = txtCodeCreation.Text;
+            if(!txtMdpCreation.Password.Equals(txtMdpConfirmation.Password))
+            {
+                MessageBox.Show("Les 2 mot de passes ne correspondent pas", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
+            }
+            else if (txtLoginCreation.Text == "" || txtMdpCreation.Password == "" || txtCodeCreation.Text == "")
             {
                 MessageBox.Show("Veuillez compléter tous les champs", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
             }
@@ -76,14 +79,60 @@ namespace LoginWindow
             }
             else
             {
-                CompagnieAerienne ca = new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, "d:\\");
-
+                if (fnaManager.isCompanyCreated())
+                {
+                    MessageBox.Show("Login crée !");
+                }
+                else
+                {
+                    MessageBox.Show("La compagnie n'existe pas encore, veuillez encoder ses données", "Nouvelle compagnie", MessageBoxButton.OK,
+                                        MessageBoxImage.Information);
+                    gridCreation.Visibility = Visibility.Hidden;
+                    gridCompagnie.Visibility = Visibility.Visible;
+                    this.Height = 245;
+                }
             }
+        }
+
+        private void ButtonValiderCA_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtLocalisation.Text == "" || txtNomComplet.Text == "" || Imgpath == null)
+            {
+                MessageBox.Show("Veuillez remplir tous les champs", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
+            }
+            else
+            {
+                new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(fnaManager.DosFiles + "\\" + fnaManager.Code + ".xml");
+                lancerCAWindow();
+            }
+        }
+
+        private void lancerCAWindow()
+        {
+            CAwindow caWin = new CAwindow(fnaManager);
+            caWin.Show();
+            this.Close();
         }
 
         private void MenuOption_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ceci est la fenêtre option");
+            if(gridConnexion.Visibility != Visibility.Visible)
+            {
+                MessageBox.Show("Cette fonctionnalitée n'est disponible que depuis la fenêtre de connexion", "Accès refusé", MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
+            }    
+            else if(txtLogin.Text != "admin" ||txtMdp.Password != "admin")
+            {
+                MessageBox.Show("Veuillez entrer les identifiants spéciaux pour accéder à la fenêtre d'option", "Accès refusé"
+                    , MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                OptionWindow optWin = new OptionWindow(fnaManager);
+                optWin.Show();
+                MessageBox.Show("Ceci est la fenêtre option");
+            }
+            
         }
 
         public FlightAndAirportManager fnaManager
@@ -98,9 +147,13 @@ namespace LoginWindow
             get { return _login; }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void TxtPath_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            dialog.ShowDialog();
+            Imgpath = dialog.SelectedPath;
+            txtPath.Text = Imgpath;
         }
 
         public string mdp   
@@ -114,5 +167,7 @@ namespace LoginWindow
             set { _code = value; }
             get { return _code; }
         }
+
+        public string Imgpath { get => _imgpath; set => _imgpath = value; }
     }
 }

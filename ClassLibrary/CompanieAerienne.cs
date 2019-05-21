@@ -54,6 +54,7 @@ namespace ClassLibrary
             get { return _logopath; }
         }
 
+
         public void Load(string path)
         {
             System.Xml.Serialization.XmlSerializer xmlFormat = new System.Xml.Serialization.XmlSerializer(typeof(CompagnieAerienne));
