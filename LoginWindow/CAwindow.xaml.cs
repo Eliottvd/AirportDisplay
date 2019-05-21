@@ -35,7 +35,9 @@ namespace LoginWindow
             InitializeComponent();
             fnaManager = f;
             //WorkSpace = fnaManager.Workspace;
-            CA = new CompagnieAerienne("SN", "Brussels Airlines", "Belgique" ,"SN.png");
+            //CA = new CompagnieAerienne("SN", "Brussels Airlines", "Belgique" ,"SN.png");
+            CA = new CompagnieAerienne();
+            //CA.Save(fnaManager.DosFiles + "\\" + fnaManager.Code + ".xml");
             CA.Load(fnaManager.DosFiles+"\\"+fnaManager.Code+".xml");
             lblNomCompagnie.Content = CA.FullName;
             lblLocalisationC.Content = CA.Localisation;

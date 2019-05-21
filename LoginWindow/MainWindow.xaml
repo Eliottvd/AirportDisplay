@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LoginWindow"
         mc:Ignorable="d"
         MaxHeight="325" MaxWidth="400"
-        Title="Login" Height="225" Width="350" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="275" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -16,7 +16,7 @@
             <MenuItem x:Name="MenuOption" Header="Option" Click="MenuOption_Click"/>
         </Menu>
         
-        <Grid x:Name="gridConnexion" Visibility="Visible" Grid.Row="1">
+        <Grid x:Name="gridConnexion" Visibility="Hidden" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -75,19 +75,21 @@
                         Width="105"
                         Height="20"
                         Click="ButtonNouveauUser_Click"/>
+                            
 
                 <Button x:Name="buttonConnexion"
                     Content="Connexion"
                     Width="75"
                     Height="20"
-                    Margin="30,0,0,0"/>
+                    Margin="30,0,0,0"
+                    Click="ButtonConnexion_Click"/>
 
             </StackPanel>
 
         </Grid>
 
 
-        <Grid x:Name="gridCreation" Visibility="Hidden" Grid.Row="1">
+        <Grid x:Name="gridCreation" Visibility="Visible" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
