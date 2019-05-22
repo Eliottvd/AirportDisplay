@@ -34,6 +34,8 @@ namespace LoginWindow
             fnaManager = f;
             txtData.Text = fnaManager.DosFiles;
             txtLogo.Text = fnaManager.DosImg;
+            ImgPath = fnaManager.DosImg;
+            DataPath = fnaManager.DosFiles;
         }
         #endregion
 
@@ -45,6 +47,7 @@ namespace LoginWindow
         private void TxtData_GotFocus(object sender, RoutedEventArgs e)
         {
             var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            dialog.SelectedPath = DataPath;
             dialog.ShowDialog();
             DataPath = dialog.SelectedPath;
             txtData.Text = DataPath;
@@ -53,6 +56,7 @@ namespace LoginWindow
         private void TxtLogo_GotFocus(object sender, RoutedEventArgs e)
         {
             var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            dialog.SelectedPath = ImgPath;
             dialog.ShowDialog();
             ImgPath = dialog.SelectedPath;
             txtLogo.Text = ImgPath;
@@ -66,5 +70,13 @@ namespace LoginWindow
             this.Close();
         }
         #endregion
+
+        private void TxtLogo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) //si on appuie sur enter
+            {
+                Valider_Click(sender, new RoutedEventArgs());
+            }
+        }
     }
 }

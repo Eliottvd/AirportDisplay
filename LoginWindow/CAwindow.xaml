@@ -4,14 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginWindow"
+        xmlns:wpfext="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
         Background="AntiqueWhite"
-        Title="CAwindow" Height="600" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="CAwindow" Height="600" Width="1200" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
 
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="top">
-                <MenuItem Header="MenuItem1"> </MenuItem>
+                <MenuItem Header="Fichier">
+                    <MenuItem Header="Sauvegarder"
+                              x:Name="ButtonMenuSave"
+                              Click="ButtonMenuSave_Click"
+                              />
+                    <MenuItem Header="Charger"
+                              x:Name="ButtonMenuLoad"
+                              Click="ButtonMenuLoad_Click"/>
+                </MenuItem>
                 <MenuItem Header="MenuItem2"> </MenuItem>
             </Menu>
 
@@ -47,35 +56,60 @@
                 <DataGrid x:Name="DataGridVolsGeneriques" 
                           Grid.Column="0"
                           ItemsSource="{Binding}"
-                          AutoGenerateColumns="False">
+                          AutoGenerateColumns="False" 
+                          KeyDown="DataGridVolsGeneriques_KeyDown">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numéro de vol" FontWeight="Bold" Binding="{Binding Path=NumVol}"/>
-                        <DataGridTextColumn Header="Départ" FontWeight="Bold" Binding="{Binding Path=AeroportDepart}"/>
-                        <DataGridTextColumn Header="Arrivée" FontWeight="Bold" Binding="{Binding Path=AeroportArrivee}"/>
+                        <DataGridTextColumn Header="Départ" FontWeight="Bold" Binding="{Binding Path=AeroportDepart.NomAAfficher}"/>
+                        <DataGridTextColumn Header="Arrivée" FontWeight="Bold" Binding="{Binding Path=AeroportArrivee.NomAAfficher}"/>
                         <DataGridTextColumn Header="Heure de départ" Binding="{Binding Path=HeureDepart}"/>
-                        <DataGridTextColumn Header="Heure d'arrivée" Binding="{Binding Path=HeureArrivee}">
-                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Heure d'arrivée" Binding="{Binding Path=AffHeureArr}"/>
                         <DataGridTextColumn Header="Durée" Binding="{Binding Path=Duree}"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
                 <DataGrid x:Name="DataGridVolsProgrammes"
-                          Grid.Column="2"/>
+                          Grid.Column="2"
+                          ItemsSource="{Binding}"
+                          AutoGenerateColumns="False">
+
+                    <DataGrid.Columns>
+                            <DataGridTextColumn Header="Numéro de vol" FontWeight="Bold" Binding="{Binding Path=VolGen.NumVol}"/>
+                            <DataGridTextColumn Header="Départ" FontWeight="Bold" Binding="{Binding Path=VolGen.AeroportDepart.NomAAfficher}"/>
+                        <DataGridTextColumn Header="Arrivée" FontWeight="Bold" Binding="{Binding Path=VolGen.AeroportArrivee.NomAAfficher}"/>
+                            <DataGridTextColumn Header="Date de départ" Binding="{Binding Path=DateDepart}"/>
+                            <DataGridTextColumn Header="Date d'arrivée" Binding="{Binding Path=DateArrivee}"/>
+                            <DataGridTextColumn Header="Places" Binding="{Binding Path=NbrPlaces}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
                 <StackPanel Grid.Row="1" 
-                            Orientation="Horizontal" 
-                            HorizontalAlignment="Right"
-                            Margin="0,10,10,0">
+                            Orientation="Vertical" 
+                            Margin="0,10,10,0"
+                            HorizontalAlignment="Center">
                     
                     <Button x:Name="buttonValider"
                             Height="20"
-                            Width="80"
-                            Content="Ajouter"
+                            Width="100"
+                            Content="Ajouter un vol"
                             VerticalAlignment="Top" Click="ButtonValider_Click"
                            />
                     
+                    <DatePicker x:Name="dtPckr"
+                                VerticalAlignment="Top"
+                                Margin="0,10,0,0"
+                                />
+
+
                 </StackPanel>
+
+                <Button x:Name="ButtonVolGenToVolProg"
+                        Content="=>"
+                        Margin="0,10,0,10"
+                        Grid.Column="1"
+                        Click="ButtonVolGenToVolProg_Click"
+                        />
             </Grid>
         </DockPanel>
 

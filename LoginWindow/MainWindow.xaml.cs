@@ -102,7 +102,7 @@ namespace LoginWindow
             }
             else
             {
-                new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(fnaManager.DosFiles + "\\" + fnaManager.Code + ".xml");
+                new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(fnaManager.getCASavingPath());
                 lancerCAWindow();
             }
         }
@@ -130,7 +130,6 @@ namespace LoginWindow
             {
                 OptionWindow optWin = new OptionWindow(fnaManager);
                 optWin.Show();
-                MessageBox.Show("Ceci est la fenêtre option");
             }
             
         }
@@ -160,6 +159,35 @@ namespace LoginWindow
         {
             set { _mdp = value; }
             get { return _mdp; }
+        }
+
+        private void TxtCode_LostFocus(object sender, RoutedEventArgs e)
+        {
+            txtCode.Text = txtCode.Text.ToUpper();
+        }
+
+        private void TxtCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter) //si on appuie sur enter
+            {
+                ButtonConnexion_Click(sender, new RoutedEventArgs());
+            }
+        }
+
+        private void TxtCodeCreation_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) //si on appuie sur enter
+            {
+                ButtonCreation_Click(sender, new RoutedEventArgs());
+            }
+        }
+
+        private void TxtPath_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) //si on appuie sur enter
+            {
+                ButtonConnexion_Click(sender, new RoutedEventArgs());
+            }
         }
 
         public string code

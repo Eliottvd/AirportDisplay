@@ -2,6 +2,6 @@
 <CompagnieAerienne xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Code>SN</Code>
   <FullName>Brussels Airlines</FullName>
-  <Localisation>Belgique</Localisation>
-  <LogoPath>SN.png</LogoPath>
+  <Localisation>BRU</Localisation>
+  <LogoPath>D:\OneDrive - Enseignement de la Province de Liège\Ecole\BLOC2\Q2\C#\Labo\Phase3\Phase3\LoginWindow\img</LogoPath>
 </CompagnieAerienne>

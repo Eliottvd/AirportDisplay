@@ -46,13 +46,15 @@
                 <TextBox x:Name="txtLogo"
                          Width="130"
                          Height="20"
-                         HorizontalAlignment="Left" GotFocus="TxtLogo_GotFocus"/>
+                         HorizontalAlignment="Left" 
+                         GotFocus="TxtLogo_GotFocus" KeyDown="TxtLogo_KeyDown"
+                         />
             </StackPanel>
 
             <StackPanel Grid.Row="3" 
                         Orientation="Horizontal" 
                         HorizontalAlignment="Center" >
-                <Button x:Name="Valider"
+                <Button x:Name="ButtonValider"
                         Content="Valider"
                         Height="20"
                         Width="80" Click="Valider_Click"

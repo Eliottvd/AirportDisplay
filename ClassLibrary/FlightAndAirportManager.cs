@@ -141,13 +141,28 @@ namespace ClassLibrary
             Stream fStream;
             try
             {
-                fStream = File.OpenRead(this.DosFiles + "\\" + this.Code + ".xml");
+                fStream = File.OpenRead(this.getCASavingPath());
             }
             catch (FileNotFoundException)
             {
                 return false;
             }
             return true;
+        }
+
+        public string getCASavingPath()
+        {
+            return this.DosFiles + "\\" + this.Code + ".xml";
+        }
+
+        public string getVolGenSavingPath()
+        {
+            return this.DosFiles + "\\" + this.Code + "VOL.xml";
+        }
+
+        public string getVolProgSavingPath()
+        {
+            return this.DosFiles + "\\" + "volsPrgs.xml";
         }
         #endregion
     }

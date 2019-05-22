@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginWindow"
         mc:Ignorable="d"
-        Title="newVolgenWindow" Height="385.2" Width="329.6"  WindowStartupLocation="CenterScreen">
+        
+        Title="newVolgenWindow" Height="391.2" Width="329.6"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -54,7 +55,14 @@
                       Grid.Row="1"
                       Width="100"
                       HorizontalAlignment="Left"
-                      SelectedIndex="0"/>
+                      SelectedIndex="0"
+                     ItemsSource="{Binding}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Path=NomAAfficher}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
             <Label Content="Aeroport d'arrivée :" 
                    Margin="10"
@@ -67,7 +75,14 @@
                       Grid.Row="2"
                       Width="100"
                       HorizontalAlignment="Left"
-                      SelectedIndex="1"/>
+                      SelectedIndex="1"
+                      ItemsSource="{Binding}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Path=NomAAfficher}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
             <Label Content="Heure de départ :" 
                    Margin="10"
@@ -91,7 +106,9 @@
                       Width="50"
                       HorizontalAlignment="Left"
                       SelectedIndex="0"/>
-
+                <!--<timePicker>
+                    
+                </timePicker>-->
             </StackPanel>
             
             

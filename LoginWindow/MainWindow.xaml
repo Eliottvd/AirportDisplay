@@ -35,7 +35,8 @@
                        Content="Identifiant :"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,0,39,0"/>
+                       Margin="20,0,39,0"
+                       />
 
                 <TextBox x:Name="txtLogin"
                          Width="130"
@@ -62,7 +63,10 @@
                 <TextBox x:Name="txtCode"
                          Width="130"
                          Height="20"
-                         HorizontalAlignment="Left"/>
+                         HorizontalAlignment="Left" 
+                         LostFocus="TxtCode_LostFocus"
+                         KeyDown="TxtCode_KeyDown"
+                         />
             </StackPanel>
 
             <StackPanel Grid.Row="4" 
@@ -146,7 +150,7 @@
                 <TextBox x:Name="txtCodeCreation"
                          Width="130"
                          Height="20"
-                         HorizontalAlignment="Left"/>
+                         HorizontalAlignment="Left" KeyDown="TxtCodeCreation_KeyDown"/>
             </StackPanel>
 
             <StackPanel Grid.Row="5" 
@@ -213,7 +217,7 @@
                 <TextBox x:Name="txtPath"
                          Width="130"
                          Height="20"
-                         HorizontalAlignment="Left" GotFocus="TxtPath_GotFocus"/>
+                         HorizontalAlignment="Left" GotFocus="TxtPath_GotFocus" KeyDown="TxtPath_KeyDown"/>
             </StackPanel>
 
             <StackPanel Grid.Row="4" 

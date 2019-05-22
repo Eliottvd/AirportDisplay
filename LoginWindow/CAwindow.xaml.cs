@@ -27,8 +27,8 @@ namespace LoginWindow
         #region variables
         private CompagnieAerienne _ca;
         private OCvol<VolGenerique> _listVolsGeneriques;
+        private OCvol<VolProgramme> _listVolsProgrammes;
         private FlightAndAirportManager _fnaManager;
-        private string _workSpace;
         #endregion
 
         #region constructeur
@@ -36,19 +36,33 @@ namespace LoginWindow
         {
             InitializeComponent();
             fnaManager = f;
-            //WorkSpace = fnaManager.Workspace;
-            //CA = new CompagnieAerienne("SN", "Brussels Airlines", "Belgique" ,"SN.png");
             CA = new CompagnieAerienne();
             //CA.Save(fnaManager.DosFiles + "\\" + fnaManager.Code + ".xml");
-            CA.Load(fnaManager.DosFiles+"\\"+fnaManager.Code+".xml");
+            CA.Load(fnaManager.getCASavingPath());
             lblNomCompagnie.Content = CA.FullName;
             lblLocalisationC.Content = CA.Localisation;
             //imgCA.Source = CA.LogoPath + "\\" + CA.Code + ".png"; 
 
             listVolsGeneriques = new OCvol<VolGenerique>();
-
-            listVolsGeneriques.Add(new VolGenerique("1", "OLE Oleye", "DBI Dubai", new TimeSpan(), new TimeSpan()));
+            listVolsProgrammes = new OCvol<VolProgramme>();
+            try
+            {
+                listVolsGeneriques.Load(fnaManager.getVolGenSavingPath());
+            }
+            catch(FileNotFoundException)
+            {
+                MessageBox.Show("Pas de vols génériques trouvés", "Bienvenue");
+            }
+            try
+            {
+                listVolsProgrammes.Load(fnaManager.getVolProgSavingPath());
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Pas de vols programmés trouvés", "Bienvenue");
+            }
             DataGridVolsGeneriques.DataContext = listVolsGeneriques;
+            DataGridVolsProgrammes.DataContext = listVolsProgrammes;
 
         }
         #endregion
@@ -72,17 +86,14 @@ namespace LoginWindow
             get { return _listVolsGeneriques; }
         }
 
-        public string workSpace
-        {
-            set { _workSpace = value; }
-            get { return _workSpace; }
-        }
+        public OCvol<VolProgramme> listVolsProgrammes { get => _listVolsProgrammes; set => _listVolsProgrammes = value; }
+
 
         #endregion
 
         private void ButtonValider_Click(object sender, RoutedEventArgs e)
         {
-            newVolgenWindow addWin = new newVolgenWindow();
+            newVolgenWindow addWin = new newVolgenWindow(fnaManager.Code);
             addWin.Valider += ModVolGen;
             this.Effect = new BlurEffect();
             addWin.ShowDialog();
@@ -93,6 +104,64 @@ namespace LoginWindow
         {
             listVolsGeneriques.Add(vol);
             listVolsGeneriques.Sort();
+        }
+
+        private void ButtonMenuSave_Click(object sender, RoutedEventArgs e)
+        {
+            listVolsGeneriques.Save(fnaManager.getVolGenSavingPath());
+            MessageBox.Show("Vos vols ont bien été sauvegardés", "Opération réussie", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void ButtonMenuLoad_Click(object sender, RoutedEventArgs e)
+        {
+            listVolsGeneriques.Load(fnaManager.getVolGenSavingPath());
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult boxResult = MessageBox.Show("Voulez-vous sauvez les vols génériques ?",
+                "Fermeture de l'application", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if(boxResult == MessageBoxResult.Yes)
+            {
+                listVolsGeneriques.Save(fnaManager.getVolGenSavingPath());
+            }
+            else if(boxResult == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            listVolsProgrammes.Save(fnaManager.getVolProgSavingPath());
+        }
+
+        private void DataGridVolsGeneriques_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Back)
+            {
+                listVolsGeneriques.Remove((VolGenerique)DataGridVolsGeneriques.SelectedItem);
+            }
+        }
+
+        private void ButtonVolGenToVolProg_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtPckr.SelectedDate == null) 
+                MessageBox.Show("Veuillez entrer un date", "Information manquante", MessageBoxButton.OK, MessageBoxImage.Information);
+            else if(DataGridVolsGeneriques.SelectedItem == null)
+                MessageBox.Show("Veuillez choisir un ou plusieurs vols génériques", "Information manquante"
+                    , MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+            {
+                foreach(VolGenerique vGen in DataGridVolsGeneriques.SelectedItems)
+                {
+                    DateTime date = (DateTime)dtPckr.SelectedDate;
+                    DateTime datedep = new DateTime(date.Ticks + vGen.HeureDepart.Ticks);
+                    DateTime datearr = new DateTime(date.Ticks + vGen.HeureArrivee.Ticks);
+                    if (vGen.NextDay)
+                        datearr = datearr.AddDays(1);
+                        
+                    listVolsProgrammes.Add(new VolProgramme(vGen, datedep, datearr, 100));
+                }
+                listVolsProgrammes.Sort();
+            }
+
         }
     }
 }

@@ -31,14 +31,13 @@ namespace ClassLibrary
 
         public void Sort()
         {
-            List<T> tmp = new List<T>(this);
-            //tmp.Sort();
+            var tmp = new List<T>(this);
+            tmp.Sort();
             Clear();
             foreach (T vol in tmp)
             {
                 Add(vol);
             }
-                
         }
     }
 }
