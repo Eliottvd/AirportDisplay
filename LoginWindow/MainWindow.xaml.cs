@@ -41,7 +41,7 @@ namespace LoginWindow
                 MessageBox.Show("Mauvais identifiants/Mot de passe", "Erreur de login", MessageBoxButton.OK, MessageBoxImage.Hand);
             else
             {
-                lancerCAWindow();
+                lancerWindow();
             }
 
         }
@@ -77,7 +77,7 @@ namespace LoginWindow
             {
                 MessageBox.Show("Login déjà existant", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
             }
-            else
+            else if(fnaManager.Code.Length == 2)
             {
                 if (fnaManager.isCompanyCreated())
                 {
@@ -92,6 +92,10 @@ namespace LoginWindow
                     this.Height = 245;
                 }
             }
+            else
+            {
+                lancerWindow();
+            }
         }
 
         private void ButtonValiderCA_Click(object sender, RoutedEventArgs e)
@@ -103,14 +107,23 @@ namespace LoginWindow
             else
             {
                 new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(fnaManager.getCASavingPath());
-                lancerCAWindow();
+                lancerWindow();
             }
         }
 
-        private void lancerCAWindow()
+        private void lancerWindow()
         {
-            CAwindow caWin = new CAwindow(fnaManager);
-            caWin.Show();
+            if(fnaManager.Code.Length == 2)
+            {
+                CAwindow caWin = new CAwindow(fnaManager);
+                caWin.Show();
+            }
+            else
+            {
+                TDCWindow tdcWin = new TDCWindow(fnaManager);
+                tdcWin.Show();
+            }
+            
             this.Close();
         }
 

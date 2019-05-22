@@ -2,6 +2,48 @@
 <ArrayOfVolProgramme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <VolProgramme>
     <VolGen>
+      <NumVol>SN001</NumVol>
+      <AeroportDepart>
+        <NomAeroport>Zaventem</NomAeroport>
+        <Localisation>Bruxelles</Localisation>
+        <CodeAeroport>BRU</CodeAeroport>
+      </AeroportDepart>
+      <AeroportArrivee>
+        <NomAeroport>John F. Kennedy</NomAeroport>
+        <Localisation>New-York</Localisation>
+        <CodeAeroport>JFK</CodeAeroport>
+      </AeroportArrivee>
+      <HeureDepart>198000000000</HeureDepart>
+      <HeureArrivee>486000000000</HeureArrivee>
+      <NextDay>false</NextDay>
+    </VolGen>
+    <DateDepart>2019-05-23T05:30:00</DateDepart>
+    <DateArrivee>2019-05-23T13:30:00</DateArrivee>
+    <NbrPlaces>100</NbrPlaces>
+  </VolProgramme>
+  <VolProgramme>
+    <VolGen>
+      <NumVol>SN003</NumVol>
+      <AeroportDepart>
+        <NomAeroport>Zaventem</NomAeroport>
+        <Localisation>Bruxelles</Localisation>
+        <CodeAeroport>BRU</CodeAeroport>
+      </AeroportDepart>
+      <AeroportArrivee>
+        <NomAeroport>Lisbonne</NomAeroport>
+        <Localisation>Lisbonne</Localisation>
+        <CodeAeroport>LIS</CodeAeroport>
+      </AeroportArrivee>
+      <HeureDepart>261000000000</HeureDepart>
+      <HeureArrivee>339000000000</HeureArrivee>
+      <NextDay>false</NextDay>
+    </VolGen>
+    <DateDepart>2019-05-23T07:15:00</DateDepart>
+    <DateArrivee>2019-05-23T09:25:00</DateArrivee>
+    <NbrPlaces>100</NbrPlaces>
+  </VolProgramme>
+  <VolProgramme>
+    <VolGen>
       <NumVol>SN003</NumVol>
       <AeroportDepart>
         <NomAeroport>Zaventem</NomAeroport>

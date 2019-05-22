@@ -18,9 +18,9 @@
                   AutoGenerateColumns="False">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Destination" IsReadOnly="True" Binding="{Binding Path=VolGen.AeroportArrivee} "/>
-                <DataGridTextColumn Header="Num vol" IsReadOnly="True" Binding="{Binding Path=NumVol}"/>
-                <DataGridTextColumn Header="H:MM" IsReadOnly="True" Binding="{Binding Path=DateDepart}"/>
+                <DataGridTextColumn Header="Destination" IsReadOnly="True" Binding="{Binding Path=VolGen.AeroportArrivee.NomAAfficher}"/>
+                <DataGridTextColumn Header="Num vol" IsReadOnly="True" Binding="{Binding Path=VolGen.NumVol}"/>
+                <DataGridTextColumn Header="H:MM" IsReadOnly="True" Binding="{Binding Path=heure}"/>
                 <DataGridTextColumn Header="Statut du vol" IsReadOnly="True" Binding="{Binding Path=Statut}"/>
             </DataGrid.Columns>
         </DataGrid>

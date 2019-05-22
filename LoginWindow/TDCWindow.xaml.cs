@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using ClassLibrary;
 namespace LoginWindow
 {
     /// <summary>
@@ -19,9 +19,28 @@ namespace LoginWindow
     /// </summary>
     public partial class TDCWindow : Window
     {
-        public TDCWindow()
+        private OCvol<VolProgramme> _listVolProg;
+        private TimeSpan _mtn;
+
+        public TDCWindow(FlightAndAirportManager fnaManager)
         {
+            OCvol<VolProgramme> ListVolTmp;
             InitializeComponent();
+            ListVolProg = new OCvol<VolProgramme>();
+            ListVolTmp = new OCvol<VolProgramme>();
+            Mtn = new TimeSpan(0, 0, 0);
+            
+            ListVolTmp.Load(fnaManager.getVolProgSavingPath());
+            foreach(VolProgramme vProg in ListVolTmp)
+            {
+                if (vProg.VolGen.AeroportDepart.CodeAeroport == fnaManager.Code)
+                    ListVolProg.Add(vProg);
+            }
+            dataGridSimulation.DataContext = ListVolProg;
+
         }
+
+        public OCvol<VolProgramme> ListVolProg { get => _listVolProg; set => _listVolProg = value; }
+        public TimeSpan Mtn { get => _mtn; set => _mtn = value; }
     }
 }

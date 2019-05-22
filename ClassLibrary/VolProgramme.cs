@@ -11,6 +11,7 @@ namespace ClassLibrary
         private DateTime _datedepart;
         private DateTime _datearrivee;
         private int _nbrplaces;
+        private string _statut;
 
         public VolGenerique VolGen { get => _volgen; set => _volgen = value; }
         public DateTime DateDepart { get => _datedepart; set => _datedepart = value; }
@@ -27,6 +28,7 @@ namespace ClassLibrary
             DateDepart = dDep;
             DateArrivee = dArr;
             NbrPlaces = nPlaces;
+            Statut = "";
         }
         #endregion
 
@@ -37,6 +39,38 @@ namespace ClassLibrary
                 return 0;
             VolProgramme vProg = (VolProgramme)obj;
             return DateDepart.CompareTo(vProg.DateDepart);
+        }
+
+        public string heure
+        {
+            get
+            {
+                return DateDepart.Hour + ":" + DateDepart.Minute;
+            }
+        }
+
+        public string Statut { get => Statut1; set => Statut1 = value; }
+        public string Statut1 { get => _statut; set => _statut = value; }
+
+        public void majStatut(TimeSpan mtn)
+        {
+            if(VolGen.HeureDepart-mtn < new TimeSpan(0,30,0))
+            {
+                if (VolGen.HeureDepart - mtn < new TimeSpan(0, 10, 0))
+                {
+                    if (VolGen.HeureDepart - mtn < new TimeSpan(0, 5, 0))
+                    {
+                        if (VolGen.HeureDepart == mtn)
+                            Statut = "AIRBORNE";
+                        Statut = "GATE CLOSED";
+                    }
+                    else
+                        Statut = "LAST CALL";
+                }
+                else
+                    Statut = "BOARDING";
+            }
+            Statut = "SCHEDULED";
         }
     }
 }
