@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginWindow"
+        xmlns:custom="clr-namespace:ClassLibrary;assembly=ClassLibrary"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="TDCWindow" Height="381" Width="377">
+    <Window.Resources>
+        <custom:ColorConverter x:Key="Converteur"/>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="top">
             <MenuItem x:Name="buttonMenuStart" Header="Start" Click="ButtonMenuStart_Click"
@@ -28,7 +32,14 @@
                 <DataGridTextColumn Header="Destination" IsReadOnly="True" Binding="{Binding Path=VolGen.AeroportArrivee.NomAAfficher}"/>
                 <DataGridTextColumn Header="Num vol" IsReadOnly="True" Binding="{Binding Path=VolGen.NumVol}"/>
                 <DataGridTextColumn Header="H:MM" IsReadOnly="True" Binding="{Binding Path=Heure}"/>
-                <DataGridTextColumn Header="Statut du vol" IsReadOnly="True" Binding="{Binding Path=Statut}"/>
+                <DataGridTemplateColumn Header="Statut du vol" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Statut}" 
+                                       Background="{Binding Path=Statut, Converter={StaticResource Converteur}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         

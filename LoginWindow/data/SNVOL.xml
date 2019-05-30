@@ -33,19 +33,19 @@
     <NextDay>false</NextDay>
   </VolGenerique>
   <VolGenerique>
-    <NumVol>SN003</NumVol>
+    <NumVol>SN001</NumVol>
     <AeroportDepart>
-      <NomAeroport>John F. Kennedy</NomAeroport>
-      <Localisation>New-York</Localisation>
-      <CodeAeroport>JFK</CodeAeroport>
+      <NomAeroport>Zaventem</NomAeroport>
+      <Localisation>Bruxelles</Localisation>
+      <CodeAeroport>BRU</CodeAeroport>
     </AeroportDepart>
     <AeroportArrivee>
       <NomAeroport>Lisbonne</NomAeroport>
       <Localisation>Lisbonne</Localisation>
       <CodeAeroport>LIS</CodeAeroport>
     </AeroportArrivee>
-    <HeureDepart>261000000000</HeureDepart>
-    <HeureArrivee>339000000000</HeureArrivee>
+    <HeureDepart>324000000000</HeureDepart>
+    <HeureArrivee>396000000000</HeureArrivee>
     <NextDay>false</NextDay>
   </VolGenerique>
   <VolGenerique>
@@ -63,21 +63,5 @@
     <HeureDepart>720000000000</HeureDepart>
     <HeureArrivee>798000000000</HeureArrivee>
     <NextDay>false</NextDay>
-  </VolGenerique>
-  <VolGenerique>
-    <NumVol>SN002</NumVol>
-    <AeroportDepart>
-      <NomAeroport>John F. Kennedy</NomAeroport>
-      <Localisation>New-York</Localisation>
-      <CodeAeroport>JFK</CodeAeroport>
-    </AeroportDepart>
-    <AeroportArrivee>
-      <NomAeroport>Zaventem</NomAeroport>
-      <Localisation>Bruxelles</Localisation>
-      <CodeAeroport>BRU</CodeAeroport>
-    </AeroportArrivee>
-    <HeureDepart>822000000000</HeureDepart>
-    <HeureArrivee>246000000000</HeureArrivee>
-    <NextDay>true</NextDay>
   </VolGenerique>
 </ArrayOfVolGenerique>

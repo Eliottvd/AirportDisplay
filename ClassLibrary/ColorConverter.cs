@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace ClassLibrary
 {
-    class ColorConverter : IValueConverter
+    public class ColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

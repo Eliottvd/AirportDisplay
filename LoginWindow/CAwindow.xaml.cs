@@ -104,10 +104,6 @@ namespace LoginWindow
         {
             ListVolsGeneriques.Add(vol);
             ListVolsGeneriques.Sort();
-            foreach(VolGenerique vGen in ListVolsGeneriques)
-            {
-                vGen.AeroportDepart = Aeroport.GetAerJFK();
-            }
         }
 
         private void ButtonMenuSave_Click(object sender, RoutedEventArgs e)

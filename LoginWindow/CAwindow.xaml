@@ -61,11 +61,11 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Numéro de vol" FontWeight="Bold" Binding="{Binding Path=NumVol}"/>
-                        <DataGridTextColumn Header="Départ" FontWeight="Bold" Binding="{Binding Path=AeroportDepart.NomAAfficher}"/>
-                        <DataGridTextColumn Header="Arrivée" FontWeight="Bold" Binding="{Binding Path=AeroportArrivee.NomAAfficher}"/>
+                        <DataGridTextColumn Header="Départ" IsReadOnly="True" FontWeight="Bold" Binding="{Binding Path=AeroportDepart.NomAAfficher}"/>
+                        <DataGridTextColumn Header="Arrivée" IsReadOnly="True" FontWeight="Bold" Binding="{Binding Path=AeroportArrivee.NomAAfficher}"/>
                         <DataGridTextColumn Header="Heure de départ" Binding="{Binding Path=HeureDepart}"/>
-                        <DataGridTextColumn Header="Heure d'arrivée" Binding="{Binding Path=AffHeureArr}"/>
-                        <DataGridTextColumn Header="Durée" Binding="{Binding Path=Duree}"/>
+                        <DataGridTextColumn Header="Heure d'arrivée" IsReadOnly="True" Binding="{Binding Path=AffHeureArr}"/>
+                        <DataGridTextColumn Header="Durée" IsReadOnly="True" Binding="{Binding Path=Duree}"/>
                     </DataGrid.Columns>
                 </DataGrid>
 

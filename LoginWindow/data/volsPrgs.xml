@@ -40,7 +40,7 @@
     </VolGen>
     <DateDepart>2019-05-23T07:15:00</DateDepart>
     <DateArrivee>2019-05-23T09:25:00</DateArrivee>
-    <NbrPlaces>100</NbrPlaces>
+    <NbrPlaces>150</NbrPlaces>
   </VolProgramme>
   <VolProgramme>
     <VolGen>
@@ -84,7 +84,6 @@
     <DateArrivee>2019-05-23T22:10:00</DateArrivee>
     <NbrPlaces>100</NbrPlaces>
     <Statut />
-    <Statut1 />
   </VolProgramme>
   <VolProgramme>
     <VolGen>
@@ -128,7 +127,6 @@
     <DateArrivee>2019-05-31T06:50:00</DateArrivee>
     <NbrPlaces>100</NbrPlaces>
     <Statut />
-    <Statut1 />
   </VolProgramme>
   <VolProgramme>
     <VolGen>
@@ -151,6 +149,27 @@
     <DateArrivee>2019-05-31T22:10:00</DateArrivee>
     <NbrPlaces>100</NbrPlaces>
     <Statut />
-    <Statut1 />
+  </VolProgramme>
+  <VolProgramme>
+    <VolGen>
+      <NumVol>SN004</NumVol>
+      <AeroportDepart>
+        <NomAeroport>John F. Kennedy</NomAeroport>
+        <Localisation>New-York</Localisation>
+        <CodeAeroport>JFK</CodeAeroport>
+      </AeroportDepart>
+      <AeroportArrivee>
+        <NomAeroport>Lisbonne</NomAeroport>
+        <Localisation>Lisbonne</Localisation>
+        <CodeAeroport>LIS</CodeAeroport>
+      </AeroportArrivee>
+      <HeureDepart>720000000000</HeureDepart>
+      <HeureArrivee>798000000000</HeureArrivee>
+      <NextDay>false</NextDay>
+    </VolGen>
+    <DateDepart>2019-05-31T20:00:00</DateDepart>
+    <DateArrivee>2019-05-31T22:10:00</DateArrivee>
+    <NbrPlaces>100</NbrPlaces>
+    <Statut />
   </VolProgramme>
 </ArrayOfVolProgramme>
