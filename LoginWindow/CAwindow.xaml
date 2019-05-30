@@ -56,7 +56,7 @@
                 <DataGrid x:Name="DataGridVolsGeneriques" 
                           Grid.Column="0"
                           ItemsSource="{Binding}"
-                          AutoGenerateColumns="False" 
+                    AutoGenerateColumns="False" 
                           KeyDown="DataGridVolsGeneriques_KeyDown">
 
                     <DataGrid.Columns>

@@ -59,7 +59,7 @@ namespace ClassLibrary
         }
 
         [XmlElement("HeureDepart")]
-        public long ticksHdep
+        public long TicksHdep
         {
             get { return HeureDepart.Ticks; }
             set { HeureDepart = new TimeSpan(value); }
@@ -74,7 +74,7 @@ namespace ClassLibrary
         }
 
         [XmlElement("HeureArrivee")]
-        public long ticksHarr
+        public long TicksHarr
         {
             get { return HeureArrivee.Ticks; }
             set { HeureArrivee = new TimeSpan(value); }

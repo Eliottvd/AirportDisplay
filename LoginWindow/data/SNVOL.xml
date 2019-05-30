@@ -1,11 +1,27 @@
 <?xml version="1.0"?>
 <ArrayOfVolGenerique xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <VolGenerique>
+    <NumVol>SN006</NumVol>
+    <AeroportDepart>
+      <NomAeroport>John F. Kennedy</NomAeroport>
+      <Localisation>New-York</Localisation>
+      <CodeAeroport>JFK</CodeAeroport>
+    </AeroportDepart>
+    <AeroportArrivee>
+      <NomAeroport>Lisbonne</NomAeroport>
+      <Localisation>Lisbonne</Localisation>
+      <CodeAeroport>LIS</CodeAeroport>
+    </AeroportArrivee>
+    <HeureDepart>144000000000</HeureDepart>
+    <HeureArrivee>216000000000</HeureArrivee>
+    <NextDay>false</NextDay>
+  </VolGenerique>
+  <VolGenerique>
     <NumVol>SN001</NumVol>
     <AeroportDepart>
-      <NomAeroport>Zaventem</NomAeroport>
-      <Localisation>Bruxelles</Localisation>
-      <CodeAeroport>BRU</CodeAeroport>
+      <NomAeroport>John F. Kennedy</NomAeroport>
+      <Localisation>New-York</Localisation>
+      <CodeAeroport>JFK</CodeAeroport>
     </AeroportDepart>
     <AeroportArrivee>
       <NomAeroport>John F. Kennedy</NomAeroport>
@@ -19,9 +35,9 @@
   <VolGenerique>
     <NumVol>SN003</NumVol>
     <AeroportDepart>
-      <NomAeroport>Zaventem</NomAeroport>
-      <Localisation>Bruxelles</Localisation>
-      <CodeAeroport>BRU</CodeAeroport>
+      <NomAeroport>John F. Kennedy</NomAeroport>
+      <Localisation>New-York</Localisation>
+      <CodeAeroport>JFK</CodeAeroport>
     </AeroportDepart>
     <AeroportArrivee>
       <NomAeroport>Lisbonne</NomAeroport>
@@ -30,6 +46,22 @@
     </AeroportArrivee>
     <HeureDepart>261000000000</HeureDepart>
     <HeureArrivee>339000000000</HeureArrivee>
+    <NextDay>false</NextDay>
+  </VolGenerique>
+  <VolGenerique>
+    <NumVol>SN004</NumVol>
+    <AeroportDepart>
+      <NomAeroport>John F. Kennedy</NomAeroport>
+      <Localisation>New-York</Localisation>
+      <CodeAeroport>JFK</CodeAeroport>
+    </AeroportDepart>
+    <AeroportArrivee>
+      <NomAeroport>Lisbonne</NomAeroport>
+      <Localisation>Lisbonne</Localisation>
+      <CodeAeroport>LIS</CodeAeroport>
+    </AeroportArrivee>
+    <HeureDepart>720000000000</HeureDepart>
+    <HeureArrivee>798000000000</HeureArrivee>
     <NextDay>false</NextDay>
   </VolGenerique>
   <VolGenerique>

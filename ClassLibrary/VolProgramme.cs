@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace ClassLibrary
 {
-    public class VolProgramme : IComparable
+    public class VolProgramme : IComparable, INotifyPropertyChanged
     {
         #region Variables + accesseurs
         private VolGenerique _volgen;
@@ -17,6 +19,22 @@ namespace ClassLibrary
         public DateTime DateDepart { get => _datedepart; set => _datedepart = value; }
         public DateTime DateArrivee { get => _datearrivee; set => _datearrivee = value; }
         public int NbrPlaces { get => _nbrplaces; set => _nbrplaces = value; }
+        public string Statut
+        {
+            get
+            {
+                return _statut;
+            }
+            set
+            {
+                if(value != _statut)
+                {
+                    _statut = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         #endregion
 
         #region constructeur
@@ -33,6 +51,8 @@ namespace ClassLibrary
         #endregion
 
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public int CompareTo(object obj)
         {
             if (obj == null)
@@ -41,7 +61,7 @@ namespace ClassLibrary
             return DateDepart.CompareTo(vProg.DateDepart);
         }
 
-        public string heure
+        public string Heure
         {
             get
             {
@@ -49,10 +69,8 @@ namespace ClassLibrary
             }
         }
 
-        public string Statut { get => Statut1; set => Statut1 = value; }
-        public string Statut1 { get => _statut; set => _statut = value; }
 
-        public void majStatut(TimeSpan mtn)
+        public String CalculStatut(TimeSpan mtn)
         {
             if(VolGen.HeureDepart-mtn < new TimeSpan(0,30,0))
             {
@@ -60,17 +78,27 @@ namespace ClassLibrary
                 {
                     if (VolGen.HeureDepart - mtn < new TimeSpan(0, 5, 0))
                     {
-                        if (VolGen.HeureDepart == mtn)
-                            Statut = "AIRBORNE";
-                        Statut = "GATE CLOSED";
+                        if ((VolGen.HeureDepart + new TimeSpan(0, 30, 0)) < mtn)
+                            return "FAR AWAY";
+                        if (VolGen.HeureDepart < mtn)
+                            return "AIRBORNE";
+                        return "GATE CLOSED";
                     }
                     else
-                        Statut = "LAST CALL";
+                        return "LAST CALL";
                 }
                 else
-                    Statut = "BOARDING";
+                {
+                    return "BOARDING";
+                }
             }
-            Statut = "SCHEDULED";
+            return "SCHEDULED";
         }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "Statut")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

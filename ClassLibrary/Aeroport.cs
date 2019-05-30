@@ -45,8 +45,8 @@ namespace ClassLibrary
         private static readonly Aeroport aerJFK = new Aeroport("John F. Kennedy", "New-York", "JFK");
         private static readonly Aeroport aerLIS = new Aeroport("Lisbonne", "Lisbonne", "LIS");
 
-        public static Aeroport getAerBRU() { return aerBRU; }
-        public static Aeroport getAerJFK() { return aerJFK; }
-        public static Aeroport getAerLIS() { return aerLIS; }
+        public static Aeroport GetAerBRU() { return aerBRU; }
+        public static Aeroport GetAerJFK() { return aerJFK; }
+        public static Aeroport GetAerLIS() { return aerLIS; }
     }
 }

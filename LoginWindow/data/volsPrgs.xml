@@ -65,6 +65,29 @@
   </VolProgramme>
   <VolProgramme>
     <VolGen>
+      <NumVol>SN004</NumVol>
+      <AeroportDepart>
+        <NomAeroport>Zaventem</NomAeroport>
+        <Localisation>Bruxelles</Localisation>
+        <CodeAeroport>BRU</CodeAeroport>
+      </AeroportDepart>
+      <AeroportArrivee>
+        <NomAeroport>Lisbonne</NomAeroport>
+        <Localisation>Lisbonne</Localisation>
+        <CodeAeroport>LIS</CodeAeroport>
+      </AeroportArrivee>
+      <HeureDepart>720000000000</HeureDepart>
+      <HeureArrivee>798000000000</HeureArrivee>
+      <NextDay>false</NextDay>
+    </VolGen>
+    <DateDepart>2019-05-23T20:00:00</DateDepart>
+    <DateArrivee>2019-05-23T22:10:00</DateArrivee>
+    <NbrPlaces>100</NbrPlaces>
+    <Statut />
+    <Statut1 />
+  </VolProgramme>
+  <VolProgramme>
+    <VolGen>
       <NumVol>SN002</NumVol>
       <AeroportDepart>
         <NomAeroport>John F. Kennedy</NomAeroport>
@@ -83,5 +106,51 @@
     <DateDepart>2019-05-23T22:50:00</DateDepart>
     <DateArrivee>2019-05-24T06:50:00</DateArrivee>
     <NbrPlaces>100</NbrPlaces>
+  </VolProgramme>
+  <VolProgramme>
+    <VolGen>
+      <NumVol>SN002</NumVol>
+      <AeroportDepart>
+        <NomAeroport>John F. Kennedy</NomAeroport>
+        <Localisation>New-York</Localisation>
+        <CodeAeroport>JFK</CodeAeroport>
+      </AeroportDepart>
+      <AeroportArrivee>
+        <NomAeroport>Zaventem</NomAeroport>
+        <Localisation>Bruxelles</Localisation>
+        <CodeAeroport>BRU</CodeAeroport>
+      </AeroportArrivee>
+      <HeureDepart>822000000000</HeureDepart>
+      <HeureArrivee>246000000000</HeureArrivee>
+      <NextDay>true</NextDay>
+    </VolGen>
+    <DateDepart>2019-05-30T22:50:00</DateDepart>
+    <DateArrivee>2019-05-31T06:50:00</DateArrivee>
+    <NbrPlaces>100</NbrPlaces>
+    <Statut />
+    <Statut1 />
+  </VolProgramme>
+  <VolProgramme>
+    <VolGen>
+      <NumVol>SN004</NumVol>
+      <AeroportDepart>
+        <NomAeroport>John F. Kennedy</NomAeroport>
+        <Localisation>New-York</Localisation>
+        <CodeAeroport>JFK</CodeAeroport>
+      </AeroportDepart>
+      <AeroportArrivee>
+        <NomAeroport>Lisbonne</NomAeroport>
+        <Localisation>Lisbonne</Localisation>
+        <CodeAeroport>LIS</CodeAeroport>
+      </AeroportArrivee>
+      <HeureDepart>720000000000</HeureDepart>
+      <HeureArrivee>798000000000</HeureArrivee>
+      <NextDay>false</NextDay>
+    </VolGen>
+    <DateDepart>2019-05-31T20:00:00</DateDepart>
+    <DateArrivee>2019-05-31T22:10:00</DateArrivee>
+    <NbrPlaces>100</NbrPlaces>
+    <Statut />
+    <Statut1 />
   </VolProgramme>
 </ArrayOfVolProgramme>

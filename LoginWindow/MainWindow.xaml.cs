@@ -28,20 +28,20 @@ namespace LoginWindow
         public MainWindow()
         {
             InitializeComponent();
-            fnaManager = new FlightAndAirportManager();
+            FnaManager = new FlightAndAirportManager();
             _imgpath = null;
         }
 
         private void ButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
-            fnaManager.Login = txtLogin.Text;
-            fnaManager.Pass = txtMdp.Password;
-            fnaManager.Code = txtCode.Text;
-            if (!fnaManager.connexion())
+            FnaManager.Login = txtLogin.Text;
+            FnaManager.Pass = txtMdp.Password;
+            FnaManager.Code = txtCode.Text;
+            if (!FnaManager.Connexion())
                 MessageBox.Show("Mauvais identifiants/Mot de passe", "Erreur de login", MessageBoxButton.OK, MessageBoxImage.Hand);
             else
             {
-                lancerWindow();
+                LancerWindow();
             }
 
         }
@@ -62,9 +62,9 @@ namespace LoginWindow
 
         private void ButtonCreation_Click(object sender, RoutedEventArgs e)
         {
-            fnaManager.Login = txtLoginCreation.Text;
-            fnaManager.Pass = txtMdpCreation.Password;
-            fnaManager.Code = txtCodeCreation.Text;
+            FnaManager.Login = txtLoginCreation.Text;
+            FnaManager.Pass = txtMdpCreation.Password;
+            FnaManager.Code = txtCodeCreation.Text;
             if(!txtMdpCreation.Password.Equals(txtMdpConfirmation.Password))
             {
                 MessageBox.Show("Les 2 mot de passes ne correspondent pas", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -73,13 +73,13 @@ namespace LoginWindow
             {
                 MessageBox.Show("Veuillez compléter tous les champs", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
             }
-            else if ((!fnaManager.creation()))
+            else if ((!FnaManager.Creation()))
             {
                 MessageBox.Show("Login déjà existant", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
             }
-            else if(fnaManager.Code.Length == 2)
+            else if(FnaManager.Code.Length == 2)
             {
-                if (fnaManager.isCompanyCreated())
+                if (FnaManager.IsCompanyCreated())
                 {
                     MessageBox.Show("Login crée !");
                 }
@@ -94,7 +94,7 @@ namespace LoginWindow
             }
             else
             {
-                lancerWindow();
+                LancerWindow();
             }
         }
 
@@ -106,21 +106,21 @@ namespace LoginWindow
             }
             else
             {
-                new CompagnieAerienne(fnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(fnaManager.getCASavingPath());
-                lancerWindow();
+                new CompagnieAerienne(FnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(FnaManager.GetCASavingPath());
+                LancerWindow();
             }
         }
 
-        private void lancerWindow()
+        private void LancerWindow()
         {
-            if(fnaManager.Code.Length == 2)
+            if(FnaManager.Code.Length == 2)
             {
-                CAwindow caWin = new CAwindow(fnaManager);
+                CAwindow caWin = new CAwindow(FnaManager);
                 caWin.Show();
             }
             else
             {
-                TDCWindow tdcWin = new TDCWindow(fnaManager);
+                TDCWindow tdcWin = new TDCWindow(FnaManager);
                 tdcWin.Show();
             }
             
@@ -141,19 +141,19 @@ namespace LoginWindow
             }
             else
             {
-                OptionWindow optWin = new OptionWindow(fnaManager);
+                OptionWindow optWin = new OptionWindow(FnaManager);
                 optWin.Show();
             }
             
         }
 
-        public FlightAndAirportManager fnaManager
+        public FlightAndAirportManager FnaManager
         {
             set { _fnaManager = value; }
             get { return _fnaManager; }
         }
 
-        public string login
+        public string Login
         {
             set { _login = value; }
             get { return _login; }
@@ -168,7 +168,7 @@ namespace LoginWindow
             txtPath.Text = Imgpath;
         }
 
-        public string mdp   
+        public string Mdp   
         {
             set { _mdp = value; }
             get { return _mdp; }
@@ -203,7 +203,7 @@ namespace LoginWindow
             }
         }
 
-        public string code
+        public string Code
         {
             set { _code = value; }
             get { return _code; }

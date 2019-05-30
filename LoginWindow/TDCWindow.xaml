@@ -5,24 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LoginWindow"
         mc:Ignorable="d"
-        Title="TDCWindow" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="TDCWindow" Height="381" Width="377">
     <DockPanel>
         <Menu DockPanel.Dock="top">
-            <MenuItem x:Name="buttonMenuStart" Header="Start"/>
+            <MenuItem x:Name="buttonMenuStart" Header="Start" Click="ButtonMenuStart_Click"
+                      />
             <MenuItem x:Name="buttonMenuPause" Header="Pause"/>
             <MenuItem x:Name="buttonMenuReprendre" Header="Reprendre"/>
             <MenuItem x:Name="buttonMenuStop" Header="Stop"/>
         </Menu>
+        <Label x:Name="lblAfficheDate"
+               Content=""
+               DockPanel.Dock="Top"
+               />
         <DataGrid x:Name="dataGridSimulation"
                   ItemsSource="{Binding}"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  DockPanel.Dock="Top">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Destination" IsReadOnly="True" Binding="{Binding Path=VolGen.AeroportArrivee.NomAAfficher}"/>
                 <DataGridTextColumn Header="Num vol" IsReadOnly="True" Binding="{Binding Path=VolGen.NumVol}"/>
-                <DataGridTextColumn Header="H:MM" IsReadOnly="True" Binding="{Binding Path=heure}"/>
+                <DataGridTextColumn Header="H:MM" IsReadOnly="True" Binding="{Binding Path=Heure}"/>
                 <DataGridTextColumn Header="Statut du vol" IsReadOnly="True" Binding="{Binding Path=Statut}"/>
             </DataGrid.Columns>
         </DataGrid>
+        
+
+        <DockPanel VerticalAlignment="Center" Margin="10" x:Name="DPTimeChoice" Visibility="Hidden">
+            <TextBox Text="{Binding ElementName=SliderTimeChoice, Path=Value, UpdateSourceTrigger=PropertyChanged}" 
+                     DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+            <Slider Maximum="20" 
+                    Minimum="1"
+                    TickPlacement="BottomRight" 
+                    TickFrequency="1" 
+                    IsSnapToTickEnabled="True" 
+                    Name="SliderTimeChoice"
+                    ValueChanged="SliderTimeChoice_ValueChanged"
+                    Value="5"/>
+        </DockPanel>
+
+
     </DockPanel>
 </Window>

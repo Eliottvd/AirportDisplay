@@ -81,7 +81,7 @@ namespace ClassLibrary
             rk.SetValue("datapath", this.DosFiles);
         }
 
-        public bool connexion()
+        public bool Connexion()
         {
             RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
             rk = rk.CreateSubKey("HEPL");
@@ -107,7 +107,7 @@ namespace ClassLibrary
                 return true;      
         }
 
-        public bool creation()
+        public bool Creation()
         {
             RegistryKey rk = Registry.CurrentUser.CreateSubKey("Software");
             rk = rk.CreateSubKey("HEPL");
@@ -136,12 +136,12 @@ namespace ClassLibrary
             }
         }
 
-        public bool isCompanyCreated()
+        public bool IsCompanyCreated()
         {
             Stream fStream;
             try
             {
-                fStream = File.OpenRead(this.getCASavingPath());
+                fStream = File.OpenRead(this.GetCASavingPath());
             }
             catch (FileNotFoundException)
             {
@@ -150,17 +150,17 @@ namespace ClassLibrary
             return true;
         }
 
-        public string getCASavingPath()
+        public string GetCASavingPath()
         {
             return this.DosFiles + "\\" + this.Code + ".xml";
         }
 
-        public string getVolGenSavingPath()
+        public string GetVolGenSavingPath()
         {
             return this.DosFiles + "\\" + this.Code + "VOL.xml";
         }
 
-        public string getVolProgSavingPath()
+        public string GetVolProgSavingPath()
         {
             return this.DosFiles + "\\" + "volsPrgs.xml";
         }

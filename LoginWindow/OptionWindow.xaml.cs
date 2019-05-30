@@ -31,23 +31,25 @@ namespace LoginWindow
         public OptionWindow(FlightAndAirportManager f)
         {
             InitializeComponent();
-            fnaManager = f;
-            txtData.Text = fnaManager.DosFiles;
-            txtLogo.Text = fnaManager.DosImg;
-            ImgPath = fnaManager.DosImg;
-            DataPath = fnaManager.DosFiles;
+            FnaManager = f;
+            txtData.Text = FnaManager.DosFiles;
+            txtLogo.Text = FnaManager.DosImg;
+            ImgPath = FnaManager.DosImg;
+            DataPath = FnaManager.DosFiles;
         }
         #endregion
 
         #region propriétés
-        public FlightAndAirportManager fnaManager { get => _fnaManager; set => _fnaManager = value; }
+        public FlightAndAirportManager FnaManager { get => _fnaManager; set => _fnaManager = value; }
         public string ImgPath { get => _imgPath; set => _imgPath = value; }
         public string DataPath { get => _dataPath; set => _dataPath = value; }
 
         private void TxtData_GotFocus(object sender, RoutedEventArgs e)
         {
-            var dialog = new System.Windows.Forms.FolderBrowserDialog();
-            dialog.SelectedPath = DataPath;
+            var dialog = new System.Windows.Forms.FolderBrowserDialog
+            {
+                SelectedPath = DataPath
+            };
             dialog.ShowDialog();
             DataPath = dialog.SelectedPath;
             txtData.Text = DataPath;
@@ -55,8 +57,10 @@ namespace LoginWindow
 
         private void TxtLogo_GotFocus(object sender, RoutedEventArgs e)
         {
-            var dialog = new System.Windows.Forms.FolderBrowserDialog();
-            dialog.SelectedPath = ImgPath;
+            System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog
+            {
+                SelectedPath = ImgPath
+            };
             dialog.ShowDialog();
             ImgPath = dialog.SelectedPath;
             txtLogo.Text = ImgPath;
@@ -64,9 +68,9 @@ namespace LoginWindow
 
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            fnaManager.DosImg = ImgPath;
-            fnaManager.DosFiles = DataPath;
-            fnaManager.SaveRegistryParameters();
+            FnaManager.DosImg = ImgPath;
+            FnaManager.DosFiles = DataPath;
+            FnaManager.SaveRegistryParameters();
             this.Close();
         }
         #endregion

@@ -19,16 +19,18 @@ namespace LoginWindow
     /// <summary>
     /// Interaction logic for newVolgenWindow.xaml
     /// </summary>
-    public partial class newVolgenWindow : Window
+    public partial class NewVolgenWindow : Window
     {
-        public newVolgenWindow(string codeCA)
+        public NewVolgenWindow(string codeCA)
         {
             int i, j;
             InitializeComponent();
-            ObservableCollection<Aeroport> listAeroport = new ObservableCollection<Aeroport>();
-            listAeroport.Add(Aeroport.getAerBRU());
-            listAeroport.Add(Aeroport.getAerJFK());
-            listAeroport.Add(Aeroport.getAerLIS());
+            ObservableCollection<Aeroport> listAeroport = new ObservableCollection<Aeroport>
+            {
+                Aeroport.GetAerBRU(),
+                Aeroport.GetAerJFK(),
+                Aeroport.GetAerLIS()
+            };
             cbAerArr.DataContext = listAeroport;
             cbAerDep.DataContext = listAeroport;
             for (i = 0, j = 0; i < 24; i++, j += 5) 
