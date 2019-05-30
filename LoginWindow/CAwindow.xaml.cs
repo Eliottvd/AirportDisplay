@@ -17,7 +17,7 @@ using System.IO;
 
 
 using ClassLibrary;
-namespace LoginWindow
+namespace AirportWindows
 {
     /// <summary>
     /// Interaction logic for CAwindow.xaml

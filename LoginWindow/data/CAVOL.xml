@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ArrayOfVolGenerique xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <VolGenerique>
+    <NumVol>CA001</NumVol>
+    <AeroportDepart>
+      <NomAeroport>John F. Kennedy</NomAeroport>
+      <Localisation>New-York</Localisation>
+      <CodeAeroport>JFK</CodeAeroport>
+    </AeroportDepart>
+    <AeroportArrivee>
+      <NomAeroport>Zaventem</NomAeroport>
+      <Localisation>Bruxelles</Localisation>
+      <CodeAeroport>BRU</CodeAeroport>
+    </AeroportArrivee>
+    <HeureDepart>108000000000</HeureDepart>
+    <HeureArrivee>186000000000</HeureArrivee>
+    <NextDay>false</NextDay>
+  </VolGenerique>
+  <VolGenerique>
+    <NumVol>CA001</NumVol>
+    <AeroportDepart>
+      <NomAeroport>John F. Kennedy</NomAeroport>
+      <Localisation>New-York</Localisation>
+      <CodeAeroport>JFK</CodeAeroport>
+    </AeroportDepart>
+    <AeroportArrivee>
+      <NomAeroport>Zaventem</NomAeroport>
+      <Localisation>Bruxelles</Localisation>
+      <CodeAeroport>BRU</CodeAeroport>
+    </AeroportArrivee>
+    <HeureDepart>108000000000</HeureDepart>
+    <HeureArrivee>186000000000</HeureArrivee>
+    <NextDay>false</NextDay>
+  </VolGenerique>
+</ArrayOfVolGenerique>

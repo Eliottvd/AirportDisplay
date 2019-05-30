@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using ClassLibrary;
 
-namespace LoginWindow
+namespace AirportWindows
 {
     /// <summary>
     /// Interaction logic for newVolgenWindow.xaml

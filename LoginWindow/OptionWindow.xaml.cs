@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 using ClassLibrary;
 
-namespace LoginWindow
+namespace AirportWindows
 {
     /// <summary>
     /// Interaction logic for OptionWindow.xaml

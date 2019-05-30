@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{C6CA0421-0A79-46ED-8A2A-28FB4B5D3DCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWindow", "LoginWindow\LoginWindow.csproj", "{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportWindows", "LoginWindow\AirportWindows.csproj", "{D8FFFB0F-CBBC-4AF8-9BCE-E77014E1D049}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

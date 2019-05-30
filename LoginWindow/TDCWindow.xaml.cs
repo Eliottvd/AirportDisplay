@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 
 using ClassLibrary;
-namespace LoginWindow
+namespace AirportWindows
 {
     /// <summary>
     /// Interaction logic for TDCWindow.xaml

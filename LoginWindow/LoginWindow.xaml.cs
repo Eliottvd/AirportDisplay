@@ -15,17 +15,17 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using ClassLibrary;
 
-namespace LoginWindow
+namespace AirportWindows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
         private FlightAndAirportManager _fnaManager;
         private string _login, _mdp, _code;
         private string _imgpath; 
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
             FnaManager = new FlightAndAirportManager();

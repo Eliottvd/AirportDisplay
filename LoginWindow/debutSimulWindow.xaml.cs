@@ -12,11 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LoginWindow
+namespace AirportWindows
 {
-    /// <summary>
-    /// Interaction logic for debutSimulWindow.xaml
-    /// </summary>
     public partial class DebutSimulWindow : Window
     {
         public delegate void dateDebut(DateTime dateDebut);
