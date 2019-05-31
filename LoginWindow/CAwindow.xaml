@@ -37,7 +37,7 @@
                            Margin="0,0,20,0"/>
                 <Image x:Name="imgCA" Height="60" Width="60"
                        HorizontalAlignment="Right" 
-                       Source="D:\OneDrive - Enseignement de la Province de Liège\Ecole\BLOC2\Q2\C#\Labo\Phase3\Phase3\LoginWindow\data\\SN.png"/>
+                       Source="{Binding LogoPath}"/>
             </StackPanel>
             
             

@@ -37,11 +37,11 @@ namespace AirportWindows
             InitializeComponent();
             FnaManager = f;
             CA = new CompagnieAerienne();
-            //CA.Save(fnaManager.DosFiles + "\\" + fnaManager.Code + ".xml");
             CA.Load(FnaManager.GetCASavingPath());
             lblNomCompagnie.Content = CA.FullName;
             lblLocalisationC.Content = CA.Localisation;
-            //imgCA.Source = CA.LogoPath + "\\" + CA.Code + ".png"; 
+            imgCA.DataContext = CA;
+            //imgCA.Source = "D:\\OneDrive - Enseignement de la Province de Liège\\Ecole\\BLOC2\\Q2\\C#\\Labo\\Phase3\\Phase3\\LoginWindow\\data\\SN.png"; 
 
             ListVolsGeneriques = new OCvol<VolGenerique>();
             ListVolsProgrammes = new OCvol<VolProgramme>();

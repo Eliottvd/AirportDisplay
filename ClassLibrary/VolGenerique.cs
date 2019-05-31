@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
+
 
 namespace ClassLibrary
 {
-    public class VolGenerique : IComparable
+    public class VolGenerique : IComparable, INotifyPropertyChanged
     {
         #region variables
         string _numvol;
@@ -36,25 +39,53 @@ namespace ClassLibrary
         #region propriétés
         public string NumVol
         {
-            set { _numvol = value; }
+            set
+            {
+                if(_numvol != value)
+                {
+                    _numvol = value;
+                    NotifyPropertyChanged();
+                }
+            }
             get { return _numvol; }
         }
 
         public Aeroport AeroportDepart
         {
-            set { _aeroportdepart = value; }
+            set
+            {
+                if (_aeroportdepart != value)
+                {
+                    _aeroportdepart = value;
+                    NotifyPropertyChanged();
+                }
+            }
             get { return _aeroportdepart; }
         }
 
         public Aeroport AeroportArrivee
         {
-            set { _aeroportarrivee = value; }
+            set
+            {
+                if (_aeroportarrivee != value)
+                {
+                    _aeroportarrivee = value;
+                    NotifyPropertyChanged();
+                }
+            }
             get { return _aeroportarrivee; }
         }
         [XmlIgnore]
         public TimeSpan HeureDepart
         {
-            set { _heuredepart = value; }
+            set
+            {
+                if (_heuredepart != value)
+                {
+                    _heuredepart = value;
+                    NotifyPropertyChanged();
+                }
+            }
             get { return _heuredepart; }
         }
 
@@ -69,7 +100,14 @@ namespace ClassLibrary
         
         public TimeSpan HeureArrivee
         {
-            set { _heurearrivee = value; }
+            set
+            {
+                if (_heurearrivee != value)
+                {
+                    _heurearrivee = value;
+                    NotifyPropertyChanged();
+                }
+            }
             get { return _heurearrivee; }
         }
 
@@ -100,6 +138,14 @@ namespace ClassLibrary
             }
         }
         public bool NextDay { get => _nextDay; set => _nextDay = value; }
+        #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public int CompareTo(object obj)
         {
@@ -108,6 +154,6 @@ namespace ClassLibrary
             VolGenerique vGen = (VolGenerique)obj;
             return HeureDepart.CompareTo(vGen.HeureDepart);
         }
-        #endregion
+
     }
 }

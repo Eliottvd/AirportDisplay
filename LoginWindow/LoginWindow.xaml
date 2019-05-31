@@ -102,7 +102,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label HorizontalAlignment="Center"
+            <Label x:Name="lblTitreCreation"
+                   HorizontalAlignment="Center"
                    Content="Creation d'un nouvel utilisateur"
                    FontSize="20"
                    />

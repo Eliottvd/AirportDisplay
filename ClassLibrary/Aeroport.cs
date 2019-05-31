@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace ClassLibrary
 {
@@ -48,5 +49,27 @@ namespace ClassLibrary
         public static Aeroport GetAerBRU() { return aerBRU; }
         public static Aeroport GetAerJFK() { return aerJFK; }
         public static Aeroport GetAerLIS() { return aerLIS; }
+
+        public void Load(string path)
+        {
+            System.Xml.Serialization.XmlSerializer xmlFormat = new System.Xml.Serialization.XmlSerializer(typeof(Aeroport));
+            using (Stream fStream = File.OpenRead(path))
+            {
+                Aeroport tmp = (Aeroport)xmlFormat.Deserialize(fStream);
+                NomAeroport = tmp.NomAeroport;
+                Localisation = tmp.Localisation;
+                CodeAeroport = tmp.CodeAeroport;
+            }
+        }
+
+        public void Save(string path)
+        {
+            System.Xml.Serialization.XmlSerializer xmlformat = new System.Xml.Serialization.XmlSerializer(typeof(Aeroport));
+            Console.WriteLine(path);
+            using (Stream fStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                xmlformat.Serialize(fStream, this);
+            }
+        }
     }
 }

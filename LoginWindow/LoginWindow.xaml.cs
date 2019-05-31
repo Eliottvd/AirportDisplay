@@ -92,23 +92,50 @@ namespace AirportWindows
                     this.Height = 245;
                 }
             }
-            else
+            else if(FnaManager.Code.Length == 3)
             {
-                LancerWindow();
+                if (FnaManager.IsCompanyCreated())
+                {
+                    MessageBox.Show("Login crée !");
+                }
+                else
+                {
+                    MessageBox.Show("L'aéroport n'existe pas encore, veuillez encoder ses données", "Nouvel aéroport", MessageBoxButton.OK,
+                                        MessageBoxImage.Information);
+                    gridCreation.Visibility = Visibility.Hidden;
+                    gridCompagnie.Visibility = Visibility.Visible;
+                    this.Height = 245;
+                }
             }
         }
 
         private void ButtonValiderCA_Click(object sender, RoutedEventArgs e)
         {
-            if(txtLocalisation.Text == "" || txtNomComplet.Text == "" || Imgpath == null)
+            if(FnaManager.Code.Length == 2)
             {
-                MessageBox.Show("Veuillez remplir tous les champs", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
+                if(txtLocalisation.Text == "" || txtNomComplet.Text == "" || Imgpath == null)
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
+                }
+                else
+                {
+                    new CompagnieAerienne(FnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(FnaManager.GetCASavingPath());
+                    LancerWindow();
+                }
             }
             else
             {
-                new CompagnieAerienne(FnaManager.Code, txtNomComplet.Text, txtLocalisation.Text, Imgpath).Save(FnaManager.GetCASavingPath());
-                LancerWindow();
+                if (txtLocalisation.Text == "" || txtNomComplet.Text == "")
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs", "Erreur de création", MessageBoxButton.OK, MessageBoxImage.Hand);
+                }
+                else
+                {
+                    new Aeroport(txtNomComplet.Text, txtLocalisation.Text, FnaManager.Code).Save(FnaManager.GetCASavingPath());
+                    LancerWindow();
+                }
             }
+            
         }
 
         private void LancerWindow()
@@ -162,9 +189,9 @@ namespace AirportWindows
 
         private void TxtPath_GotFocus(object sender, RoutedEventArgs e)
         {
-            var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            var dialog = new System.Windows.Forms.OpenFileDialog();
             dialog.ShowDialog();
-            Imgpath = dialog.SelectedPath;
+            Imgpath = dialog.FileName;
             txtPath.Text = Imgpath;
         }
 
